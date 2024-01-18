@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Montserrat:ital,wght@0,700;0,900;1,600&family=Nunito+Sans:opsz,wght@6..12,700&family=Raleway:wght@600&family=Ubuntu:wght@300;400&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c7ebf15da9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <title>WeatherApp</title>
+</head>
+
+
+
+<body>
+    <div>
+        <header>
+            <h1>Weather App</h1>
+            
+        </header>
+    </div>
+    <div>
+        <div class="form-city">
+            <form method="post" onsubmit="event.preventDefault();">
+                <label>
+                    <input type="text" placeholder="Choose a City" id="city">
+                </label>
+                <button type="submit" onClick="getData()"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+            </form>
+            <div class="nextto">
+                <div class="weatherDescribtion" id="result"></div>
+                <div class="weatherlogo" id="logoresult"></div>
+            </div>
+        </div>
+        
+            <div class="nextto" id="forecast">
+
+            </div>
+        </div>
+            <div class="mapview" id="map">
+
+        </div>
+    </div>
+    
+    <div>
+        <footer>
+            <h6>@LUQ</h6>
+        </footer>
+    </div>
+    <script src="indexeee.js"></script>
+</body>
+
+</html>

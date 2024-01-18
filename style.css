@@ -1,0 +1,98 @@
+body{
+    /* from gradient backgrounds */
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); 
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: 5%;
+}
+
+
+div{
+    border-radius: 10px;
+}
+
+header{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-city{
+    margin-top: 5%;
+    padding: 10px;
+    background-color: #ffffff;
+
+}
+input{
+    background-color: #81def5;
+    border-radius: 10px;
+    width: 100px;
+    padding: 10px;
+    border: 5px;
+    margin-right: 2%;
+    
+}
+button{
+    border-radius: 10px;
+    width: 100px;
+    padding: 10px;
+    border: 5px;
+    margin-right: 2%;
+}
+
+
+button:hover{
+    background-color: #81def5;
+    transition: 0.75s;
+}
+
+footer{
+    margin-top: 80%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+.weatherDescribtion{
+    background-color: #ffffff;
+    width: 222px;
+    margin-top: 2%;
+    padding: 10px;
+    text-align: center;
+}
+
+/* this technique was adobted from stackoverflow */
+.nextto{
+    display: flex;
+}
+
+.nextto .weatherDescribtion, 
+.nextto .weatherlogo{
+    flex: 1;
+}
+
+
+
+.nextto .weatherlogo{
+    padding-top: 100px;
+}
+
+.forecastView{
+    background-color: #ffffff;
+    margin: 1%;
+    padding: 10px;
+}
+
+#map { 
+    height: 300px;
+}
+
+.mapview{
+    margin: 1%;
+    padding: 10px;
+    
+}
+
+br{
+    width: 10%;
+}
