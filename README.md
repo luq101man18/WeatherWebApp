@@ -43,6 +43,7 @@ Welcome to the Weather Web App, a simple yet powerful tool for checking current 
 
 - **OpenWeatherMap API**: Provides real-time weather data.
 - **Visual Crossing Weather API**: Offers a 15-day weather forecast.
+- **Leaflet API**: Provides interactive map.
 
 ## Important Note
 
