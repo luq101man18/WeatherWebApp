@@ -20,7 +20,7 @@ async function getData() {
 
         console.log(data);
         console.log(dataVisualCrossing);
-        console.log(dataVisualCrossing.days[1].conditions);
+        console.log(dataVisualCrossing.days[1].conditions);                             
         console.log(dataVisualCrossing.days[1].temp);
         
         
@@ -48,26 +48,57 @@ async function getData() {
         forecast.innerHTML = "";
         forecast.innerHTML += "<table>";
 
-        for (let index = 0; index <= 5; index++) {
-            forecast.innerHTML += "<div class=\"nextto\" id=\"weatherImage"+index+"\">";
-            forecast.innerHTML += "<tr>"
-            forecast.innerHTML += "<td>" + dataVisualCrossing.days[index].datetime + "</td>"
-            forecast.innerHTML += "<br><th>" + dataVisualCrossing.days[index].conditions + "</th></br>"
-            forecast.innerHTML += "<td>" + dataVisualCrossing.days[index].temp + "</td>"
+        for (let index = 1; index <= 5; index++) {
+            forecast.innerHTML += "<div class=\"forecast-background\" id=\"weatherImage"+index+"\">";
+            var forecastImage = document.getElementById("weatherImage"+index);
+            forecastImage.innerHTML += "<tr>"
+            forecastImage.innerHTML += "<td>" + dataVisualCrossing.days[index].datetime + "</td>"
+            forecastImage.innerHTML += "<br><th>" + dataVisualCrossing.days[index].conditions + "</th></br>"
+            forecastImage.innerHTML += "<td>" + ((dataVisualCrossing.days[index].temp - 32 )*(5/9)).toFixed(2)+ "</td>"
 
-            if(("Partially cloudy" ===  dataVisualCrossing.days[index].conditions)) {
+            if((dataVisualCrossing.days[index].conditions.includes("cloudy"))) {
                 var images = document.getElementById("weatherImage"+index.toString());
-                images.style.backgroundImage = "url(./images/clouds.jpg)";
+                images.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(./images/clouds.jpg)";
                 console.log("true");
-            }else{
-                console.log("false");
+            }else if (dataVisualCrossing.days[index].conditions.includes("Snow")){
+                var images = document.getElementById("weatherImage"+index.toString());
+                images.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(./images/snow.jpg)";
+                console.log("true");
+            }else if (dataVisualCrossing.days[index].conditions.includes("Rain")){
+                var images = document.getElementById("weatherImage"+index.toString());
+                images.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(./images/rain2.jpg)";
+                console.log("true");
+            }else if (dataVisualCrossing.days[index].conditions.includes("Overcast")){
+                var images = document.getElementById("weatherImage"+index.toString());
+                images.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(./images/overcast.jpg)";
+                console.log("true");
             }
+            else{
+                var images = document.getElementById("weatherImage"+index.toString());
+                images.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(./images/clear.jpg)";
+                console.log("true");
+            }
+            
 
-            forecast.innerHTML += "</tr>"
+            forecast.innerHTML += "</tr>";
             forecast.innerHTML += "</br>";
-            forecast.innerHTML += "</div>"
+            forecast.innerHTML += "</div>";
         }
         forecast.innerHTML += "</table>";
+
+        const newAlert = dataVisualCrossing.alerts[0];
+        var alerts = document.getElementById("alertsAdisory");
+        alerts.innerHTML = "";
+        if(newAlert!= null){    
+            alerts.innerHTML += "<p>" + newAlert.event + "</p>";
+            alerts.innerHTML += "<p>" + newAlert.headline + "</p>";
+        }else{
+            alerts.innerHTML += "<p> There are no alerts, enjoy your day! </p>";
+        }
+        
+        
+        
+
 
         // invoke a map from leaflet website
         if (map === null){

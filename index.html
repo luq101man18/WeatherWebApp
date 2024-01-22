@@ -26,24 +26,29 @@
         </header>
     </div>
     <div>
-        <div class="form-city">
-            <form method="post" onsubmit="event.preventDefault();">
-                <label>
-                    <input type="text" placeholder="Choose a City" id="city">
-                </label>
-                <button type="submit" onClick="getData()"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <div class="nextto">
+            <div class="form-city">
+                <form method="post" onsubmit="event.preventDefault();">
+                    <label>
+                        <input type="text" placeholder="Choose a City" id="city">
+                    </label>
+                    <button type="submit" onClick="getData()"><i class="fa-solid fa-magnifying-glass"></i></button>
 
-            </form>
-            <div class="nextto">
-                <div class="weatherDescribtion" id="result"></div>
-                <div class="weatherlogo" id="logoresult"></div>
+                </form>
+                <div class="nextto">
+                    <div class="weatherDescribtion" id="result"></div>
+                    <div class="weatherlogo" id="logoresult"></div>
+                </div>
+            </div>
+            
+            <div class="nextto forecast-list" id="forecast">
+
             </div>
         </div>
-        
-            <div class="nextto" id="forecast">
+        <div class="alerts" id="alertsAdisory">
 
-            </div>
         </div>
+        <div>
             <div class="mapview" id="map">
 
         </div>

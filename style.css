@@ -1,6 +1,10 @@
 body{
     /* from gradient backgrounds */
     background-color: #0093E9;
+    /* background-image: url("./images/background13.jpg");
+    background-size:     cover;                     
+    background-repeat:   no-repeat;
+    background-position: center center;   */
     background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); 
     font-family: 'Montserrat', sans-serif;
     text-align: center;
@@ -21,9 +25,14 @@ header{
 .form-city{
     margin-top: 5%;
     padding: 10px;
-    background-color: #ffffff;
-
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("./images/clear.jpg");
+    width: 50%;
+    /* from stackoverflow */
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;  
 }
+
 input{
     background-color: #81def5;
     border-radius: 10px;
@@ -64,6 +73,7 @@ footer{
 /* this technique was adobted from stackoverflow */
 .nextto{
     display: flex;
+
 }
 
 .nextto .weatherDescribtion, 
@@ -77,11 +87,11 @@ footer{
     padding-top: 100px;
 }
 
-.forecastView{
-    background-color: #ffffff;
+/* .forecastView{
+    /* background-color: #ffffff;
     margin: 1%;
-    padding: 10px;
-}
+    padding: 10px; 
+} */
 
 #map { 
     height: 300px;
@@ -93,6 +103,39 @@ footer{
     
 }
 
-br{
-    width: 10%;
+
+.forecast-background{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    color: #ffffff;
+    width: 200px;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.5);
+    background-size:     cover;                 
+    background-repeat:   no-repeat;
+    background-position: center center;  
+}
+
+
+.forecast-list{
+/* because nextto has display: flext; property we that affects alignment,
+     we use the below property to align the content to the center
+     */
+    justify-content: center;  
+    margin-top: 5%;
+    padding: 10px;
+    width: 50%;
+}
+
+
+.alerts{
+    padding: 10px;
+    margin: 10px;
+    background-color: #ffffff;
+    border: 2px;
+    border-style: solid;
+    border-color: yellow;
 }
