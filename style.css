@@ -1,11 +1,10 @@
 body{
+
+    
     /* from gradient backgrounds */
     background-color: #0093E9;
-    /* background-image: url("./images/background13.jpg");
-    background-size:     cover;                     
-    background-repeat:   no-repeat;
-    background-position: center center;   */
     background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); 
+    
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     margin: 5%;
@@ -28,7 +27,7 @@ header{
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("./images/clear.jpg");
     width: 50%;
     /* from stackoverflow */
-    background-size:     cover;                      /* <------ */
+    background-size:     cover;                    
     background-repeat:   no-repeat;
     background-position: center center;  
 }
@@ -81,17 +80,9 @@ footer{
     flex: 1;
 }
 
-
-
 .nextto .weatherlogo{
     padding-top: 100px;
 }
-
-/* .forecastView{
-    /* background-color: #ffffff;
-    margin: 1%;
-    padding: 10px; 
-} */
 
 #map { 
     height: 300px;
