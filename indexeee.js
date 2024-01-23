@@ -7,8 +7,8 @@ async function getData() {
 
         var city = document.getElementById("city").value;
         var newC = city.toLowerCase();
-        const apiKeyOpenMap = "3ad2ff31ad264022cd5760a54b738b8b";
-        const apiKeyVisualCrossing = "FQ52NM2JK4JXEQZVGZJ3PS3HW"
+        const apiKeyOpenMap = "0";
+        const apiKeyVisualCrossing = "0"
         const urlOpenMap = "https://api.openweathermap.org/data/2.5/weather?q=" + (newC) + "&appid=" + apiKeyOpenMap;
         const urlVisualCrossing = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + newC + "?key=" + apiKeyVisualCrossing;
         const responseOpenMap = await fetch(urlOpenMap);
