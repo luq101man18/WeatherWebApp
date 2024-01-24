@@ -1,4 +1,4 @@
-﻿# WeatherWebApp
+﻿# Weather Web App
 
 Welcome to the Weather Web App, a simple yet powerful tool for checking current weather conditions and forecasts for your desired city.
 
