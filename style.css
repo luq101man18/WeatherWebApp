@@ -144,6 +144,9 @@ input[type="checkbox"].toggle-custom:checked + label::before{
 
 input[type="checkbox"].toggle-custom:checked + label::after{
     background-color:  #FAEF9B;
+    
+    /* adopted */
+    left: calc(100% + 0.2em); 
 }
 
 /*  */
