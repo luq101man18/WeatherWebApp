@@ -204,10 +204,10 @@ function buildMainFrame(htmlDiv, value, mainTemp, feelsTemp){
 function buildSecondaryFrame(htmlDiv, value, mainTemp, index){
     htmlDiv.innerHTML += "<div class=\"forecast-background\" id=\"weatherImage"+index+"\">";
     var secondaryFrame = document.getElementById("weatherImage"+index);
-    secondaryFrame.innerHTML += "<tr>"
-    secondaryFrame.innerHTML += "<td>" + value.datetime + "</td>"
-    secondaryFrame.innerHTML += "<br><th>" + value.conditions + "</th></br>"
-    secondaryFrame.innerHTML += "<td><span id = \"change-temp-second"+index+"\">" + mainTemp + "</span></td>"        
+    // secondaryFrame.innerHTML += "<tr>"
+    secondaryFrame.innerHTML += value.datetime;
+    secondaryFrame.innerHTML += "<br>" + value.conditions + "</br>"
+    secondaryFrame.innerHTML += "<span id = \"change-temp-second"+index+"\">" + mainTemp + "</span>"        
 }
 
 
@@ -295,13 +295,13 @@ async function getData() {
         invokeToggle();
       
         forecast.innerHTML = "";
-        forecast.innerHTML += "<table>";
+        // forecast.innerHTML += "<table>";
 
         buildWeatherFrame(resultData, dataVisualCrossing.days, mainTemps)
 
         settingSecondaryFramesTemps();
 
-        forecast.innerHTML += "</table>";
+        // forecast.innerHTML += "</table>";
 
         // alerts
         viewAlerts(dataVisualCrossing.alerts[0]);

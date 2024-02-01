@@ -217,7 +217,6 @@ input[type="checkbox"].toggle-custom:checked + label::after{
 
 
 .forecast-background{
-    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
@@ -259,10 +258,10 @@ input[type="checkbox"].toggle-custom:checked + label::after{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/rain2.jpg);
 }
 .clear {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/overcast.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/clear.jpg);
 }
 .overcast {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/clear.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/overcast.jpg);
 }
 
 .alerts{
@@ -316,9 +315,21 @@ footer{
         justify-content: center;  
         text-align: center;
         margin-top: 5%;
-        margin-left: 250px;
+        margin-left: 180px;
         padding: 10px;
         width: 50%;
+    }
+    .forecast-background{
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        text-align: center;
+        color: #ffffff;
+        width: auto;
+        height: 200px;
+        background-size:     cover;                 
+        background-repeat:   no-repeat;
+        background-position: center center;  
     }
 }   
 
