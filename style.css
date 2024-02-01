@@ -236,6 +236,7 @@ input[type="checkbox"].toggle-custom:checked + label::after{
      */
     justify-content: center;  
     margin-top: 5%;
+    margin-left: 70.45px;
     padding: 10px;
     width: 50%;
 }
@@ -306,6 +307,17 @@ footer{
         background-size:     cover;                    
         background-repeat:   no-repeat;
         background-position: center center;  
+    }
+    .forecast-list{
+         /* because nextto has display: flext; property we that affects alignment,
+        we use the below property to align the content to the center
+        */
+        justify-content: center;  
+        text-align: center;
+        margin-top: 5%;
+        margin-left: 250px;
+        padding: 10px;
+        width: 50%;
     }
 }   
 
