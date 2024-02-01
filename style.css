@@ -1,77 +1,191 @@
 body{
 
-    
-    /* from gradient backgrounds */
-    background-color: #0093E9;
-    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); 
-    
+    background-color: #E1F0DA;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     margin: 5%;
+    display: block;
 }
+
+
+
+/* added to fix responsivenss */
+.wrapper{ 
+    width: 100%; 
+}
+
 
 
 div{
     border-radius: 10px;
 }
 
-header{
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
+.homepage{
+    margin-top: 15%;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+.weather-app{
+    font-size: 35px;
+}
+
+.search-bar-input{
+    padding: 15px;
+    border-radius: 50px;
+    border: 1px solid;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    background-color: transparent;
+} 
+.search-bar-input:hover{
+    background-color: #BFD8AF;
+    transition: 500ms;
+}
+
+button { 
+    border: 0px;
+    padding: 15px;
+    width: 100%;
+    border-radius: 50px;
+    background-color: #BFD8AF;
+} 
+
+input:focus {
+    outline: none;
+}
+
+.invalid-input:empty{
+    display: none;
+}
+.invalid-input{
+    margin-top: 10px;
+}
+
+.error {
+    color: #50623A;
+    padding: 10px;
+
+}
+.error:empty {
+    display: none;
+}
+
+.hide-toggle {
+    visibility: hidden;
+}
+
+label{
+    position: relative;
+}
+label:before {
+  height: 1.4em;
+  width: 1.4em;
+  left: 0.2em;
+}
+.toggle {
+    visibility: visible;
+    left: 5%;
+    height: 30px;
+    width: 30px;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+
+input[type="checkbox"].toggle-custom{
+    opacity: 0%;
+    position: relative;
+}
+
+
+.toggle-custom + label{
+    position: relative;
+    display: flex;    
+    align-items: center;
+    cursor: pointer;
+}
+
+input[type="checkbox"].toggle-custom + label::before{
+    position: absolute;
+    content: "";
+    width: 4em;
+    height: 2em;
+    background-color:  #AAD9BB;
+    border-radius: 2em;
+    margin-right: 0.25em;
+    transition: 500ms;
+}
+
+input[type="checkbox"].toggle-custom + label::after{
+    align-items: center;
+    display: flex;
+    position: absolute;
+    content: "";
+    text-align: center;
+    width: 2em;
+    height: 2em;
+    left: 0.3em;
+    background-color:  #80BCBD;
+    border-radius: 2em;
+}
+
+input[type="checkbox"].toggle-custom:checked + label::before{
+    background-color:  #FFDD95;
+}
+
+input[type="checkbox"].toggle-custom:checked + label::after{
+    background-color:  #FAEF9B;
+}
+
+/*  */
+
+
+
+/* .toggle-custom:checked + label{
+    position: relative;
+    color: red;
+} */
+
+
 .form-city{
+    align-items: center;
     margin-top: 5%;
     padding: 10px;
-    /* background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("./images/clear.jpg"); */
-    width: 50%;
     /* from stackoverflow */
     background-size:     cover;                    
     background-repeat:   no-repeat;
     background-position: center center;  
 }
 
-input{
-    background-color: #81def5;
-    border-radius: 10px;
-    width: 100px;
-    padding: 10px;
-    border: 5px;
-    margin-right: 2%;
-    
-}
-button{
-    border-radius: 10px;
-    width: 100px;
-    padding: 10px;
-    border: 5px;
-    margin-right: 2%;
-}
-
-
-button:hover{
-    background-color: #81def5;
-    transition: 0.75s;
-}
-
-footer{
-    margin-top: 80%;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-}
 .weatherDescribtion{
-    background-color: #ffffff;
-    width: 222px;
+    /* background-color: #ffffff; */
+    color: #ffffff;
+    width: 100%;
     margin-top: 2%;
     padding: 10px;
     text-align: center;
 }
 
+.weather-details{
+    display: none;
+
+}
+
+.weatherDescribtion:empty{
+    display: none;
+}
+
 /* this technique was adobted from stackoverflow */
 .nextto{
-    display: flex;
+    display: block;
 
 }
 
@@ -82,6 +196,12 @@ footer{
 
 .nextto .weatherlogo{
     padding-top: 100px;
+}
+
+.main-and-secondary{
+    text-align: center;
+    align-items: center;
+
 }
 
 #map { 
@@ -110,7 +230,6 @@ footer{
     background-position: center center;  
 }
 
-
 .forecast-list{
 /* because nextto has display: flext; property we that affects alignment,
      we use the below property to align the content to the center
@@ -121,12 +240,185 @@ footer{
     width: 50%;
 }
 
+.background-weatherImage {
+    background-size:     cover;                 
+    background-repeat:   no-repeat;
+    background-position: center center;  
+    width: 100%;
+}
+
+.cloudy {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/clouds.jpg);
+}
+.snow {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/snow.jpg);
+}
+.rain {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/rain2.jpg);
+}
+.clear {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/overcast.jpg);
+}
+.overcast {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/clear.jpg);
+}
 
 .alerts{
     padding: 10px;
     margin: 10px;
-    background-color: #ffffff;
-    border: 2px;
-    border-style: solid;
-    border-color: yellow;
+    background-color: #BFD8AF;
 }
+.alerts:empty{
+    display: none;
+}
+
+footer{
+    margin-top: 80%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+@media only screen and (min-width:768px) {
+
+    .nextto{
+        display: block;
+    }
+    .weatherDescribtion{
+
+        width: 100%;
+        margin-top: 2%;
+        padding: 10px;
+        text-align: center;
+    }
+    .weather-details{
+        display: block;
+
+    }
+    .weather-icon{
+        display: none;
+    }
+    .form-city{
+        align-items: center;
+        margin-top: 5%;
+        padding: 10px;
+        /* from stackoverflow */
+        background-size:     cover;                    
+        background-repeat:   no-repeat;
+        background-position: center center;  
+    }
+}   
+
+@media only screen and (min-width:1200px) {
+    input[type="checkbox"].toggle-custom + label::before{
+        position: absolute;
+        content: "";
+        width: 6em;
+        height: 3em;
+        background-color:  #AAD9BB;
+        border-radius: 2em;
+        margin-right: 0.25em;
+        transition: 500ms;
+    }
+
+    input[type="checkbox"].toggle-custom + label::after{
+        align-items: center;
+        display: flex;
+        position: absolute;
+        content: "";
+        text-align: center;
+        width: 3em;
+        height: 3em;
+        left: 0.2em;
+        background-color:  #80BCBD;
+        border-radius: 2em;
+    }
+    .search-bar-input{
+        padding: 15px;
+        border-radius: 50px;
+        border: 1px solid;
+        text-align: center;
+        margin-left: 2%;
+        width: 500px;
+        background-color: transparent;
+    } 
+    button { 
+        border: 0px;
+        padding: 10px;
+        background-color: transparent;
+        width: auto;
+    }   
+    
+    .form-city{
+        align-items: center;
+        margin-top: 5%;
+        padding: 10px;
+        width: 50%;
+        display: flex;
+        /* from stackoverflow */
+        background-size:     cover;                    
+        background-repeat:   no-repeat;
+        background-position: center center;  
+    }
+
+    .weatherDescribtion{
+        background-color: #ffffff;
+        width: 222px;
+        margin-top: 2%;
+        padding: 10px;
+        text-align: left;
+        color: black;
+    }
+    .weather-details{
+        display: block;
+
+    }
+    .weather-icon{
+        display: none;
+    }
+
+    .weatherDescribtion:empty{
+        display: none;
+    }
+
+    .nextto{
+        display: flex;
+
+    }
+
+    .nextto .weatherDescribtion{
+        flex: 1;
+    }
+
+
+    .forecast-background{
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        text-align: center;
+        color: #ffffff;
+        width: 200px;
+        height: 200px;
+        background-size:     cover;                 
+        background-repeat:   no-repeat;
+        background-position: center center;  
+    }
+
+    .forecast-list{
+    /* because nextto has display: flext; property we that affects alignment,
+        we use the below property to align the content to the center
+        */
+        justify-content: center;  
+        margin-top: 5%;
+        padding: 10px;
+        width: 50%;
+    }
+
+    .background-weatherImage {
+        background-size:     cover;                 
+        background-repeat:   no-repeat;
+        background-position: center center;  
+    }
+}
+

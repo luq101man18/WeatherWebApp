@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,39 +18,52 @@
 </head>
 
 <body>
-    <div>
-        <header>
+    <div class="wrapper">
+        <div class="homepage">
+            <div class="weather-app">
             <h1>Weather App</h1>
-            
-        </header>
-    </div>
-    <div>
-        <div class="nextto">
-            <div class="form-city" id="weatherImage0">
-                <form method="post" onsubmit="event.preventDefault();">
-                    <label>
-                        <input type="text" placeholder="Choose a City" id="city">
-                    </label>
+            </div>
+            <div class="search-bar">
+                <form method="post" onsubmit="event.preventDefault();">    
+                    <input type="text" placeholder="Choose a City" autocomplete="on" class="search-bar-input" id="city">   
                     <button type="submit" onClick="getData()"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
-                <div class="nextto">
-                    <div class="weatherDescribtion" id="result"></div>
-                    <div class="weatherlogo" id="logoresult"></div>
+            </div>
+            <div class="invalid-input">
+                <span class="error" id="error-content"></span>
+            </div>
+        </div>
+        <div id="content">
+            <div class="hide-toggle" id="toggle-temp">
+                <input type="checkbox" name="" class="toggle-custom" id="toggle">
+                <label for="toggle"></label>
+            </div>
+            <div class="nextto nexttoIpad">
+                <div class="form-city" id="weatherImage0">
+                    <div class="">
+                        <div class="weatherDescribtion" id="result"></div>
+                    </div>
+                </div>
+                <div class="nextto forecast-list" id="forecast">
+                    <div id="weatherImage1"></div>
+                    <div id="weatherImage2"></div>
+                    <div id="weatherImage3"></div>
+                    <div id="weatherImage4"></div>
+                    <div id="weatherImage5"></div>
                 </div>
             </div>
-            <div class="nextto forecast-list" id="forecast"></div>
+            <div class="alerts" id="alertsAdisory"></div>
+            <div>
+                <div class="mapview" id="map">
+            </div>
         </div>
-        <div class="alerts" id="alertsAdisory"></div>
         <div>
-            <div class="mapview" id="map">
+            <footer>
+                <h6>@LUQ</h6>
+            </footer>
         </div>
+        <script src="indexeee.js"></script>
     </div>
-    <div>
-        <footer>
-            <h6>@LUQ</h6>
-        </footer>
-    </div>
-    <script src="indexeee.js"></script>
 </body>
 
 </html>

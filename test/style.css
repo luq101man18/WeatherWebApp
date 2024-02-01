@@ -1,0 +1,54 @@
+input[type="checkbox"].toggle{
+    opacity: 0%;
+    position: absolute;
+}
+
+input[type="checkbox"].toggle:checked + label {  
+    color: red;
+}
+
+
+/*  */
+input[type="checkbox"]{
+    display: none;
+}
+
+.checkbox-custom{
+    display: none;
+}
+
+input[type="checkbox"].checkbox-custom{
+    /* opacity: 0%;
+    position: absolute;
+    cursor: pointer;
+    padding: 0px;
+    text-align: left;
+    margin-left: 0%;
+    width: 10px; */
+}
+
+.slide {
+    display: inline-block;
+    cursor: pointer;   
+    left: 5%;
+    height: 30px;
+    width: 30px;
+    background-color: blue;
+    transition: background-color 0.5s;
+}
+
+.slide:before{
+    content:"";
+    position: absolute;
+    left: 24px;
+    bottom: 1px;
+    width: 4px;
+    height: 4px;
+    
+    background-color: brown;
+    transition: background-color 0.5s;
+}
+
+.checkbox-custom:checked + .slide{
+    background-color: aquamarine;
+}
