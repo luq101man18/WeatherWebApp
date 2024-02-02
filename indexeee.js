@@ -2,7 +2,7 @@ var map = null;
 var marker = null;  
 
 let lastCity = null;
-
+var cityStorageFlag = false;
 const apiKeyVisualCrossing = "FQ52NM2JK4JXEQZVGZJ3PS3HW"
 
 var tempC = 0;
@@ -20,15 +20,16 @@ var tempsF = [];
 
 
 
-// we use local storage rather than cookies because local storage is related to client side
-// while cookies is more related to server side
-
 function setLocalStorage(value){
-    localStorage.setItem("city", value);
+    if (!cityStorageFlag){
+        localStorage.setItem("city", value);
+    }
 }
+
 function getLastCity(){
     return localStorage.getItem("city");
 }
+
 function setPlaceholderToLastCity(){
     var cityInput = document.getElementById("city");
     if (getLastCity() != null){
@@ -80,11 +81,14 @@ function settingFehrenheitSecondaryFrames(){
     }
 }
 
-
+function loadLastWeatherPage(){
+    setPlaceholderToLastCity();
+    getLastCityWeather(getLastCity());
+}
 
 
 // use local storage
-window.onload = setPlaceholderToLastCity();
+window.onload = loadLastWeatherPage();
 
 
 
@@ -93,11 +97,13 @@ function handelEmptyError(value){
     if (!value) {
         const error = document.getElementById("error-content");
         error.innerHTML = "You have to chose a city!";
+        cityStorageFlag = true;
         clearContent();
         return;
     }else{
         const error = document.getElementById("error-content");
         error.innerHTML = "";
+        cityStorageFlag = false;
         showContent();
 
     }
@@ -107,11 +113,13 @@ function handelWrongCityError(value){
     if(value === 400){
         const error = document.getElementById("error-content");
         error.innerHTML = "The city you chose does not exist!";
+        cityStorageFlag = true;
         clearContent();
         return;
     }else{
         const error = document.getElementById("error-content");
         error.innerHTML = "";
+        cityStorageFlag = false;
         showContent();
     }
 }
@@ -221,8 +229,6 @@ function showContent(){
     weatherResultContent.style.display = "";
 }
     
-
-
 function setImages(value, index){
     if((value.icon.includes("cloudy"))) {
     var images = document.getElementById("weatherImage"+index.toString());
@@ -270,11 +276,8 @@ function settingSecondaryFramesTemps(){
 
 async function getData() {
     try {
-
-        var city = document.getElementById("city").value.toLowerCase();
-        var resultData = document.getElementById("result");  
-        var forecast = document.getElementById("forecast");
-
+        let [city, resultData, forecast] = getDivs();        
+        
         // handel empty request
         handelEmptyError(city);
 
@@ -284,34 +287,55 @@ async function getData() {
         // handel requet of a wrong city
         handelWrongCityError(responseVisualCrossing.status);
 
+        const dataVisualCrossing = await responseVisualCrossing.json(); 
+        
         // local storage setting
         setLocalStorage(city);
 
-        const dataVisualCrossing = await responseVisualCrossing.json(); 
-        
-        
-       
-        // invoke toggle 
-        invokeToggle();
-      
-        forecast.innerHTML = "";
-        // forecast.innerHTML += "<table>";
-
-        buildWeatherFrame(resultData, dataVisualCrossing.days, mainTemps)
-
-        settingSecondaryFramesTemps();
-
-        // forecast.innerHTML += "</table>";
-
-        // alerts
-        viewAlerts(dataVisualCrossing.alerts[0]);
-
-        // invoke a map from leaflet website
-        viewMap(dataVisualCrossing.latitude,dataVisualCrossing.longitude);
+        showData(forecast, resultData, mainTemps, dataVisualCrossing);
 
     } catch (error) {
         console.error(error);
     }
 }
 
+function getDivs(){
+    var city = document.getElementById("city").value.toLowerCase();
+    var resultData = document.getElementById("result");  
+    var forecast = document.getElementById("forecast");
 
+    return [city, resultData, forecast];
+}
+
+function showData(forecastDiv, resultDiv, tempArray, weatherData){
+    
+    // invoke toggle 
+    invokeToggle();
+    
+    forecastDiv.innerHTML = "";
+
+    buildWeatherFrame(resultDiv, weatherData.days, tempArray)
+
+    settingSecondaryFramesTemps();
+
+    // alerts
+    viewAlerts(weatherData.alerts[0]);
+
+    // invoke a map from leaflet website
+    viewMap(weatherData.latitude,weatherData.longitude);
+}
+
+
+async function getLastCityWeather(Lastcity){  
+    let [city, resultData, forecast] = getDivs();        
+        
+    const urlVisualCrossing = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + Lastcity + "?key=" + apiKeyVisualCrossing;
+    const responseVisualCrossing = await fetch(urlVisualCrossing)
+
+    const dataVisualCrossing = await responseVisualCrossing.json(); 
+    
+    // local storage setting
+    setLocalStorage(city);
+
+    showData(forecast, resultData, mainTemps, dataVisualCrossing);
+}

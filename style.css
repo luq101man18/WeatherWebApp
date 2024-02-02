@@ -32,8 +32,8 @@ img {
     align-items: center;
 }
 
-.weather-app{
-    font-size: 35px;
+.weather-app-title{
+    font-size: 21px;
 }
 
 .search-bar-input{
@@ -71,7 +71,7 @@ input:focus {
 }
 
 .error {
-    color: #50623A;
+    color: #ad3636;
     padding: 10px;
 
 }
@@ -284,6 +284,10 @@ footer{
 }
 
 @media only screen and (min-width:768px) {
+    
+    .weather-app-title{
+        font-size: 35px;
+    }
     input[type="checkbox"].toggle-custom:checked + label::after{
         background-color:  #FAEF9B;
     
