@@ -40,7 +40,6 @@ function setPlaceholderToLastCity(){
 function chooseTemp(){
     toggle.checked? toFahrenheit():toCelsius();
 }
-
 function toFahrenheit(){
     tempF = (tempC / (5/9)) - 32;
     return tempF;

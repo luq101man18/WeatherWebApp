@@ -189,23 +189,19 @@ input[type="checkbox"].toggle-custom:checked + label::after{
 
 /* this technique was adobted from stackoverflow */
 .nextto{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
 }
 
-.nextto .weatherDescribtion, 
-.nextto .weatherlogo{
-    flex: 1;
-}
-
-.nextto .weatherlogo{
-    padding-top: 100px;
+.nextto .weatherDescribtion{
+    flex: 1;  
+    /*  */
 }
 
 .main-and-secondary{
     text-align: center;
-    align-items: center;
-
 }
 
 #map { 
@@ -237,11 +233,9 @@ input[type="checkbox"].toggle-custom:checked + label::after{
 /* because nextto has display: flext; property we that affects alignment,
      we use the below property to align the content to the center
      */
-    justify-content: center;  
     margin-top: 5%;
-    margin-left: 70.45px;
+    margin: 0 auto;
     padding: 10px;
-    width: 50%;
 }
 
 .background-weatherImage {
@@ -294,9 +288,7 @@ footer{
         /* adopted */
         left: calc(100% + 0.5em); 
     }
-    .nextto{
-        display: block;
-    }
+
     .weatherDescribtion{
 
         width: 100%;
@@ -306,13 +298,11 @@ footer{
     }
     .weather-details{
         display: block;
-
     }
     .weather-icon{
         display: none;
     }
     .form-city{
-        align-items: center;
         margin-top: 5%;
         padding: 10px;
         /* from stackoverflow */
@@ -321,17 +311,18 @@ footer{
         background-position: center center;  
     }
     .forecast-list{
-         /* because nextto has display: flext; property we that affects alignment,
+        /* because nextto has display: flext; property we that affects alignment,
         we use the below property to align the content to the center
         */
-        justify-content: center;  
-        text-align: center;
         margin-top: 5%;
-        margin-left: 180px;
+        margin: 0 auto;
         padding: 10px;
         width: 50%;
     }
+
     .forecast-background{
+        /* position: absolute; */
+        
         border-radius: 10px;
         padding: 10px;
         margin: 10px;
@@ -393,11 +384,9 @@ footer{
 
     
     .form-city{
-        align-items: center;
         margin-top: 5%;
         padding: 10px;
         width: 50%;
-        display: flex;
         /* from stackoverflow */
         background-size:     cover;                    
         background-repeat:   no-repeat;
@@ -426,7 +415,7 @@ footer{
 
     .nextto{
         display: flex;
-
+        flex-direction: row;
     }
 
     .nextto .weatherDescribtion{
@@ -439,7 +428,6 @@ footer{
         border-radius: 10px;
         padding: 10px;
         margin: 10px;
-        text-align: center;
         color: #ffffff;
         width: 200px;
         height: 200px;
@@ -449,8 +437,8 @@ footer{
     }
 
     .forecast-list{
-    /* because nextto has display: flext; property we that affects alignment,
-        we use the below property to align the content to the center
+        /* because nextto has display: flext; property we that affects alignment,
+            we use the below property to align the content to the center
         */
         justify-content: center;  
         margin-top: 5%;
