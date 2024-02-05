@@ -79,6 +79,10 @@ input:focus {
     display: none;
 }
 
+.error-input{
+    border-color: #ad3636;
+}
+
 .hide-toggle {
     visibility: hidden;
 }
@@ -334,7 +338,7 @@ footer{
         background-repeat:   no-repeat;
         background-position: center center;  
     }
-}   
+}
 
 @media only screen and (min-width:1200px) {
     input[type="checkbox"].toggle-custom + label::before{

@@ -92,32 +92,35 @@ window.onload = loadLastWeatherPage();
 
 
 function handelEmptyError(value){
-        // handel empty request
+    // handel empty request
+    const error = document.getElementById("error-content");
+    const cityInput = document.getElementById("city");
     if (!value) {
-        const error = document.getElementById("error-content");
         error.innerHTML = "You have to chose a city!";
+        cityInput.classList.add("error-input");
         cityStorageFlag = true;
         clearContent();
         return;
     }else{
-        const error = document.getElementById("error-content");
         error.innerHTML = "";
+        cityInput.classList.remove("error-input");
         cityStorageFlag = false;
         showContent();
-
     }
 }
 
 function handelWrongCityError(value){
+    const error = document.getElementById("error-content");
+    const cityInput = document.getElementById("city");
     if(value === 400){
-        const error = document.getElementById("error-content");
         error.innerHTML = "The city you chose does not exist!";
+        cityInput.classList.add("error-input");
         cityStorageFlag = true;
         clearContent();
         return;
     }else{
-        const error = document.getElementById("error-content");
         error.innerHTML = "";
+        cityInput.classList.remove("error-input");
         cityStorageFlag = false;
         showContent();
     }
@@ -135,17 +138,30 @@ function viewAlerts(value){
     }
 }
 
-function viewMap(lat, lon){
+async function viewMap(lat, lon){
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+    const { Map } = await google.maps.importLibrary("maps");
     if (map === null){
-        map = L.map('map').setView([lat, lon], 1);
-        L.tileLayer('https://api.maptiler.com/maps/outdoor-v2/256/{z}/{x}/{y}.png?key=A3JyLxSXdwFwRgli2Mbx', {
-            attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-        }).addTo(map);
-        marker = L.marker([lat, lon]).addTo(map)
+        map = new Map(document.getElementById("map"), {
+            zoom: 4,
+            center: { lat: lat, lng: lon },
+            mapId: "Map",
+        });
+        marker = new AdvancedMarkerElement({
+            map: map,
+            position: { lat: lat, lng: lon },
+        });
     }else{
-        map.removeLayer(marker)
-        map.setView([lat, lon], 1);
-        marker = L.marker([lat, lon]).addTo(map)
+        map = new Map(document.getElementById("map"), {
+            zoom: 4,
+            center: { lat: lat, lng: lon },
+            mapId: "Map",
+        });
+        marker.setMap(null);
+        marker = new AdvancedMarkerElement({
+            map: map,
+            position: { lat: lat, lng: lon },
+        });
     }
 }
 
