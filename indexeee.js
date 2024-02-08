@@ -1,6 +1,6 @@
 var map = null; 
 var marker = null;  
-
+var currentTime = new Date();
 let lastCity = null;
 var cityStorageFlag = false;
 const apiKeyVisualCrossing = "FQ52NM2JK4JXEQZVGZJ3PS3HW"
@@ -233,7 +233,6 @@ function buildSecondaryFrame(htmlDiv, value, mainTemp, index){
     secondaryFrame.innerHTML += "<span id = \"change-temp-second"+index+"\">" + mainTemp + "</span>"        
 }
 
-
 // handle when city input is valid then invalid 
 function clearContent(){
     var weatherResultContent = document.getElementById("content");
@@ -303,7 +302,8 @@ async function getData() {
         handelWrongCityError(responseVisualCrossing.status);
 
         const dataVisualCrossing = await responseVisualCrossing.json(); 
-        
+        console.log(dataVisualCrossing);
+        invokeSunsetAndSunsetElements(dataVisualCrossing);
         // local storage setting
         setLocalStorage(city);
 
@@ -340,7 +340,6 @@ function showData(forecastDiv, resultDiv, tempArray, weatherData){
     viewMap(weatherData.latitude,weatherData.longitude);
 }
 
-
 async function getLastCityWeather(Lastcity){  
     let [city, resultData, forecast] = getDivs();        
         
@@ -353,4 +352,78 @@ async function getLastCityWeather(Lastcity){
     setLocalStorage(city);
 
     showData(forecast, resultData, mainTemps, dataVisualCrossing);
+    invokeSunsetAndSunsetElements(dataVisualCrossing)
+}
+
+function stringDateToNumDate(dateFromWeatherData, condition){
+    let time = {};
+    let splitTime = dateFromWeatherData.split(":");
+    time["hours"] = parseInt(splitTime[0]);
+    time["minutes"] = parseInt(splitTime[1]);
+    time["seconds"] = parseInt(splitTime[2]);
+    time["condition"] = condition;
+    return time;
+}
+
+function getTimeDifference(sunTime, flag24issue = false){
+    let difference = {};
+    let hours = 0;
+    if(flag24issue){
+        hours = 24 - currentTime.getHours();
+        hours += sunTime["hours"];
+        difference["hours"] = Math.abs(hours);
+    }else{
+        difference["hours"] = Math.abs(sunTime["hours"]-currentTime.getHours());
+    }
+    difference["mintues"] = Math.abs(sunTime["minutes"]-currentTime.getMinutes());
+    difference["condition"] = sunTime["condition"];
+    return difference;
+}
+
+function invokeSunsetAndSunsetElements(weatherData){
+    let timeDifference = null;
+    let sunrise = weatherData.currentConditions.sunrise;
+    let sunset = weatherData.currentConditions.sunset;
+
+    // from stackoverflow
+    // reparsing the date
+    currentTime = new Date(new Date().toLocaleString('en-US', {timeZone: weatherData.timezone}))
+    
+    sunrise = stringDateToNumDate(sunrise, "sunrise");   
+    sunset = stringDateToNumDate(sunset, "sunset");
+   if((currentTime.getHours() < sunrise["hours"]) || (currentTime.getHours() > sunset["hours"])){
+        let flag = false;
+        if (currentTime.getHours() > sunset["hours"]){
+            flag = true;
+            timeDifference= getTimeDifference(sunrise, flag);
+        }else{
+            flag = false;
+            timeDifference= getTimeDifference(sunrise, flag);
+        }
+    }else{
+        timeDifference= getTimeDifference(sunset);
+    }
+    setSunDataIntoElements(timeDifference)
+    sunTimings(weatherData);
+}
+
+function setSunDataIntoElements(time){
+    let sun = document.getElementById("sunid");
+    setSunBackground(time, sun);
+    sun.innerHTML = "";
+    sun.innerHTML += "Until " + time["condition"] + ": " + time["hours"] + " and " + time["mintues"];   
+}
+
+function setSunBackground(time, devElement){
+    time["condition"].includes("sunrise")?devElement.classList.add("sunrise"):devElement.classList.add("sunset");
+}
+
+function sunTimings(weatherData){
+    let sun = document.getElementById("sun-time");
+    sun.classList.add("sun-times");
+    sun.classList.add("background-additions");
+    sun.innerHTML = "";
+    sun.innerHTML = "Sunrise: " + weatherData.currentConditions.sunrise ;
+    sun.innerHTML += "<br>"
+    sun.innerHTML += "Sunset: " + weatherData.currentConditions.sunset;   
 }

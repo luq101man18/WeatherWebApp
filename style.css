@@ -153,6 +153,24 @@ input[type="checkbox"].toggle-custom:checked + label::after{
     left: calc(100% + 0.5em); 
 }
 
+.sun:empty{
+    display: none;
+}
+
+.sun{
+    text-align: center;
+    color: #ffffff;
+    margin-top: 5%;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+        /* from stackoverflow */
+    background-size:     cover;                    
+    background-repeat:   no-repeat;
+    background-position: center center;  
+}
+
 /*  */
 
 
@@ -264,6 +282,25 @@ input[type="checkbox"].toggle-custom:checked + label::after{
 .overcast {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/overcast.jpg);
 }
+.sunrise{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/sunrise.jpg);
+}
+.sunset{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/sunset.jpg);
+}
+.sun-times{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/sun.jpg);
+}
+
+.background-additions{
+    background-size:     cover;                    
+    background-repeat:   no-repeat;
+    background-position: center center;  
+}
+
+.sun-timings{
+    display: none;
+}
 
 .alerts{
     padding: 10px;
@@ -306,14 +343,6 @@ footer{
     .weather-icon{
         display: none;
     }
-    .form-city{
-        margin-top: 5%;
-        padding: 10px;
-        /* from stackoverflow */
-        background-size:     cover;                    
-        background-repeat:   no-repeat;
-        background-position: center center;  
-    }
     .forecast-list{
         /* because nextto has display: flext; property we that affects alignment,
         we use the below property to align the content to the center
@@ -324,9 +353,7 @@ footer{
         width: 50%;
     }
 
-    .forecast-background{
-        /* position: absolute; */
-        
+    .forecast-background{        
         border-radius: 10px;
         padding: 10px;
         margin: 10px;
@@ -337,6 +364,22 @@ footer{
         background-size:     cover;                 
         background-repeat:   no-repeat;
         background-position: center center;  
+    }
+    .sun{
+        text-align: center;
+        color: #ffffff;
+        margin-top: 5%;
+        margin: 0 auto;
+        width: 45%;
+        height: 200px;
+        padding: 10px;
+        /* from stackoverflow */
+        background-size:     cover;                    
+        background-repeat:   no-repeat;
+        background-position: center center;  
+    }
+    .sun-timings{
+        display: none;
     }
 }
 
@@ -388,13 +431,7 @@ footer{
 
     
     .form-city{
-        margin-top: 5%;
-        padding: 10px;
-        width: 50%;
-        /* from stackoverflow */
-        background-size:     cover;                    
-        background-repeat:   no-repeat;
-        background-position: center center;  
+        width: 50%; 
     }
 
     .weatherDescribtion{
@@ -445,8 +482,9 @@ footer{
             we use the below property to align the content to the center
         */
         justify-content: center;  
-        margin-top: 5%;
-        margin-left: 0;
+        margin-top: 15%;
+        /* margin-left: 0; */
+        margin-bottom: auto;
         padding: 10px;
         width: 50%;
     }
@@ -455,6 +493,33 @@ footer{
         background-size:     cover;                 
         background-repeat:   no-repeat;
         background-position: center center;  
+    }
+    .sun{
+        text-align: center;
+        color: #ffffff;
+        margin: 3% auto;
+        /* width: 100%; */
+        height: 300px;
+        padding: 10px;
+        /* from stackoverflow */
+        background-size:     cover;                    
+        background-repeat:   no-repeat;
+        background-position: center center;  
+        flex: 1;
+    }
+    .sun-timings{
+        display: block;
+        text-align: center;
+        color: #ffffff;
+        margin: 3% 1%;
+        padding: 10px;
+        width: 50%;
+        height: 300px;
+        flex: 1;
+    }
+    .sun-container{
+        display: flex;
+        flex-direction: row;
     }
 }
 
