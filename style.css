@@ -192,7 +192,6 @@ input[type="checkbox"].toggle-custom:checked + label::after{
 }
 
 .weatherDescribtion{
-    /* background-color: #ffffff; */
     color: #ffffff;
     width: 100%;
     margin-top: 2%;
@@ -311,6 +310,10 @@ input[type="checkbox"].toggle-custom:checked + label::after{
     display: none;
 }
 
+.stations{
+        display: none;
+}
+
 footer{
     margin-top: 80%;
     padding: 20px;
@@ -330,13 +333,6 @@ footer{
         left: calc(100% + 0.5em); 
     }
 
-    .weatherDescribtion{
-
-        width: 100%;
-        margin-top: 2%;
-        padding: 10px;
-        text-align: center;
-    }
     .weather-details{
         display: block;
     }
@@ -347,52 +343,29 @@ footer{
         /* because nextto has display: flext; property we that affects alignment,
         we use the below property to align the content to the center
         */
-        margin-top: 5%;
-        margin: 0 auto;
-        padding: 10px;
         width: 50%;
     }
 
     .forecast-background{        
-        border-radius: 10px;
-        padding: 10px;
-        margin: 10px;
-        text-align: center;
-        color: #ffffff;
         width: auto;
-        height: 200px;
-        background-size:     cover;                 
-        background-repeat:   no-repeat;
-        background-position: center center;  
     }
     .sun{
-        text-align: center;
-        color: #ffffff;
-        margin-top: 5%;
-        margin: 0 auto;
         width: 45%;
         height: 200px;
         padding: 10px;
-        /* from stackoverflow */
-        background-size:     cover;                    
-        background-repeat:   no-repeat;
-        background-position: center center;  
     }
     .sun-timings{
+        display: none;
+    }
+    .stations{
         display: none;
     }
 }
 
 @media only screen and (min-width:1200px) {
     input[type="checkbox"].toggle-custom + label::before{
-        position: absolute;
-        content: "";
         width: 6em;
         height: 3em;
-        background-color:  #AAD9BB;
-        border-radius: 2em;
-        margin-right: 0.25em;
-        transition: 500ms;
     }
 
     input[type="checkbox"].toggle-custom + label::after{
@@ -408,14 +381,9 @@ footer{
         border-radius: 2em;
     }
     .search-bar-input{
-        padding: 15px;
-        border-radius: 50px;
-        border: 1px solid;
-        text-align: center;
         margin-left: 2%;
         width: 500px;
-        background-color: transparent;
-    } 
+    }
     input[type="checkbox"].toggle-custom:checked + label::after{
         background-color:  #FAEF9B;
     
@@ -429,19 +397,16 @@ footer{
         width: auto;
     }   
 
-    
     .form-city{
         width: 50%; 
     }
 
     .weatherDescribtion{
-        background-color: #ffffff;
         width: 222px;
-        margin-top: 2%;
-        padding: 10px;
         text-align: left;
-        color: black;
+        color: white;
     }
+
     .weather-details{
         display: block;
 
@@ -463,30 +428,10 @@ footer{
         flex: 1;
     }
 
-
-    .forecast-background{
-        background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 10px;
-        padding: 10px;
-        margin: 10px;
-        color: #ffffff;
-        width: 200px;
-        height: 200px;
-        background-size:     cover;                 
-        background-repeat:   no-repeat;
-        background-position: center center;  
-    }
-
     .forecast-list{
-        /* because nextto has display: flext; property we that affects alignment,
-            we use the below property to align the content to the center
-        */
         justify-content: center;  
         margin-top: 15%;
-        /* margin-left: 0; */
         margin-bottom: auto;
-        padding: 10px;
-        width: 50%;
     }
 
     .background-weatherImage {
@@ -495,18 +440,11 @@ footer{
         background-position: center center;  
     }
     .sun{
-        text-align: center;
-        color: #ffffff;
         margin: 3% auto;
-        /* width: 100%; */
         height: 300px;
-        padding: 10px;
-        /* from stackoverflow */
-        background-size:     cover;                    
-        background-repeat:   no-repeat;
-        background-position: center center;  
         flex: 1;
     }
+
     .sun-timings{
         display: block;
         text-align: center;
@@ -520,6 +458,17 @@ footer{
     .sun-container{
         display: flex;
         flex-direction: row;
+    }
+    .stations{
+        display: block;
+        background-color: #AAD9BB;
+        text-align: center;
+        color: black;
+        padding: 10px;
+        margin: 3%;
+    }
+    .stations:empty{
+        display: none;
     }
 }
 

@@ -302,12 +302,12 @@ async function getData() {
         handelWrongCityError(responseVisualCrossing.status);
 
         const dataVisualCrossing = await responseVisualCrossing.json(); 
-        console.log(dataVisualCrossing);
         invokeSunsetAndSunsetElements(dataVisualCrossing);
         // local storage setting
         setLocalStorage(city);
 
         showData(forecast, resultData, mainTemps, dataVisualCrossing);
+        getStations(dataVisualCrossing);
 
     } catch (error) {
         console.error(error);
@@ -352,7 +352,8 @@ async function getLastCityWeather(Lastcity){
     setLocalStorage(city);
 
     showData(forecast, resultData, mainTemps, dataVisualCrossing);
-    invokeSunsetAndSunsetElements(dataVisualCrossing)
+    invokeSunsetAndSunsetElements(dataVisualCrossing);
+    getStations(dataVisualCrossing);
 }
 
 function stringDateToNumDate(dateFromWeatherData, condition){
@@ -426,4 +427,14 @@ function sunTimings(weatherData){
     sun.innerHTML = "Sunrise: " + weatherData.currentConditions.sunrise ;
     sun.innerHTML += "<br>"
     sun.innerHTML += "Sunset: " + weatherData.currentConditions.sunset;   
+}
+
+function getStations(weatherData){
+    let stations  = Object.values(weatherData.stations);
+    let stationsDiv = document.getElementById("stationsID");
+    stationsDiv.innerHTML = "";
+    stationsDiv.innerHTML += "<h3>Weather Stations</h3>";
+    stations.forEach(element => {
+        stationsDiv.innerHTML += "<br>" + element.name + "<br>";
+    });
 }
