@@ -6,36 +6,26 @@ body{
     margin: 5%;
     display: block;
 }
-
-
-
 /* added to fix responsivenss */
 .wrapper{ 
     width: 100%; 
 }
-
-
-
 div{
     border-radius: 10px;
 }
-
 img {
     max-width: 100%;
     height: auto;
 }
-
 .homepage{
     margin-top: 15%;
     padding: 10px;
     text-align: center;
     align-items: center;
 }
-
 .weather-app-title{
     font-size: 21px;
 }
-
 .search-bar-input{
     padding: 15px;
     border-radius: 50px;
@@ -49,7 +39,6 @@ img {
     background-color: #BFD8AF;
     transition: 500ms;
 }
-
 button { 
     margin-top: 20px;
     border: 0px;
@@ -58,18 +47,15 @@ button {
     border-radius: 50px;
     background-color: #BFD8AF;
 } 
-
 input:focus {
     outline: none;
 }
-
 .invalid-input:empty{
     display: none;
 }
 .invalid-input{
     margin-top: 10px;
 }
-
 .error {
     color: #ad3636;
     padding: 10px;
@@ -78,15 +64,12 @@ input:focus {
 .error:empty {
     display: none;
 }
-
 .error-input{
     border-color: #ad3636;
 }
-
 .hide-toggle {
     visibility: hidden;
 }
-
 label{
     position: relative;
 }
@@ -103,21 +86,16 @@ label:before {
     margin-top: 10px;
     margin-right: 20px;
 }
-
-
 input[type="checkbox"].toggle-custom{
     opacity: 0%;
     position: relative;
 }
-
-
 .toggle-custom + label{
     position: relative;
     display: flex;    
     align-items: center;
     cursor: pointer;
 }
-
 input[type="checkbox"].toggle-custom + label::before{
     position: absolute;
     content: "";
@@ -128,7 +106,6 @@ input[type="checkbox"].toggle-custom + label::before{
     margin-right: 0.25em;
     transition: 500ms;
 }
-
 input[type="checkbox"].toggle-custom + label::after{
     align-items: center;
     display: flex;
@@ -141,22 +118,18 @@ input[type="checkbox"].toggle-custom + label::after{
     background-color:  #80BCBD;
     border-radius: 2em;
 }
-
 input[type="checkbox"].toggle-custom:checked + label::before{
     background-color:  #FFDD95;
 }
-
 input[type="checkbox"].toggle-custom:checked + label::after{
     background-color:  #FAEF9B;
     
     /* adopted */
     left: calc(100% + 0.5em); 
 }
-
 .sun:empty{
     display: none;
 }
-
 .sun{
     text-align: center;
     color: #ffffff;
@@ -170,17 +143,6 @@ input[type="checkbox"].toggle-custom:checked + label::after{
     background-repeat:   no-repeat;
     background-position: center center;  
 }
-
-/*  */
-
-
-
-/* .toggle-custom:checked + label{
-    position: relative;
-    color: red;
-} */
-
-
 .form-city{
     align-items: center;
     margin-top: 5%;
@@ -190,7 +152,6 @@ input[type="checkbox"].toggle-custom:checked + label::after{
     background-repeat:   no-repeat;
     background-position: center center;  
 }
-
 .weatherDescribtion{
     color: #ffffff;
     width: 100%;
@@ -198,16 +159,13 @@ input[type="checkbox"].toggle-custom:checked + label::after{
     padding: 10px;
     text-align: center;
 }
-
 .weather-details{
     display: none;
 
 }
-
 .weatherDescribtion:empty{
     display: none;
 }
-
 /* this technique was adobted from stackoverflow */
 .nextto{
     display: flex;
@@ -215,27 +173,21 @@ input[type="checkbox"].toggle-custom:checked + label::after{
     justify-content: center;
 
 }
-
 .nextto .weatherDescribtion{
     flex: 1;  
     /*  */
 }
-
 .main-and-secondary{
     text-align: center;
 }
-
 #map { 
     height: 300px;
 }
-
 .mapview{
     margin: 1%;
     padding: 10px;
     
 }
-
-
 .forecast-background{
     border-radius: 10px;
     padding: 10px;
@@ -249,23 +201,20 @@ input[type="checkbox"].toggle-custom:checked + label::after{
     background-repeat:   no-repeat;
     background-position: center center;  
 }
-
 .forecast-list{
-/* because nextto has display: flext; property we that affects alignment,
+    /* because nextto has display: flext; property we that affects alignment,
      we use the below property to align the content to the center
      */
     margin-top: 5%;
     margin: 0 auto;
     padding: 10px;
 }
-
 .background-weatherImage {
     background-size:     cover;                 
     background-repeat:   no-repeat;
     background-position: center center;  
     width: 100%;
 }
-
 .cloudy {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/clouds.jpg);
 }
@@ -290,17 +239,14 @@ input[type="checkbox"].toggle-custom:checked + label::after{
 .sun-times{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/sun.jpg);
 }
-
 .background-additions{
     background-size:     cover;                    
     background-repeat:   no-repeat;
     background-position: center center;  
 }
-
 .sun-timings{
     display: none;
 }
-
 .alerts{
     padding: 10px;
     margin: 10px;
@@ -309,18 +255,15 @@ input[type="checkbox"].toggle-custom:checked + label::after{
 .alerts:empty{
     display: none;
 }
-
 .stations{
         display: none;
 }
-
 footer{
     margin-top: 80%;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 10px;
 }
-
 @media only screen and (min-width:768px) {
     
     .weather-app-title{
@@ -339,16 +282,7 @@ footer{
     .weather-icon{
         display: none;
     }
-    .forecast-list{
-        /* because nextto has display: flext; property we that affects alignment,
-        we use the below property to align the content to the center
-        */
-        width: 50%;
-    }
 
-    .forecast-background{        
-        width: auto;
-    }
     .sun{
         width: 45%;
         height: 200px;
@@ -361,7 +295,6 @@ footer{
         display: none;
     }
 }
-
 @media only screen and (min-width:1200px) {
     input[type="checkbox"].toggle-custom + label::before{
         width: 6em;
@@ -432,6 +365,7 @@ footer{
         justify-content: center;  
         margin-top: 15%;
         margin-bottom: auto;
+        width: 50%;
     }
 
     .background-weatherImage {
