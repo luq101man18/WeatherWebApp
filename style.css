@@ -1,32 +1,6 @@
-// colors
-$background-color: #E1F0DA;
-$containers-color: #BFD8AF;
-$error-color: #ad3636;
-
-// border
-$div-border: 10px;
-$search-bar-border: 50px;
-$toggle-border: 2em;
-
-// space
-$div-spacing: 10px;
-
-// font 
-$mobile-font-size: 21px;
-$normal-font-size: 35px;
-
-// breakpoint
-$ipad-breakpoint: 768px;
-$desktop-breakpoint: 1200px;
-
-@mixin background-image-additions{
-    background-size:     cover;
-    background-repeat:   no-repeat;
-    background-position: center center;  
-}
-
 body{
-    background-color: $background-color;
+
+    background-color: #E1F0DA;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     margin: 5%;
@@ -37,8 +11,7 @@ body{
     width: 100%; 
 }
 div{
-    border-radius: $div-border;
-    padding: $div-spacing
+    border-radius: 10px;
 }
 img {
     max-width: 100%;
@@ -46,15 +19,16 @@ img {
 }
 .homepage{
     margin-top: 15%;
+    padding: 10px;
     text-align: center;
     align-items: center;
 }
 .weather-app-title{
-    font-size: $mobile-font-size;
+    font-size: 21px;
 }
 .search-bar-input{
     padding: 15px;
-    border-radius: $search-bar-border;
+    border-radius: 50px;
     border: 1px solid;
     text-align: center;
     align-items: center;
@@ -62,7 +36,7 @@ img {
     background-color: transparent;
 } 
 .search-bar-input:hover{
-    background-color: $containers-color;
+    background-color: #BFD8AF;
     transition: 500ms;
 }
 button { 
@@ -70,8 +44,8 @@ button {
     border: 0px;
     padding: 15px;
     width: 50%;
-    border-radius: $search-bar-border;
-    background-color: $containers-color;
+    border-radius: 50px;
+    background-color: #BFD8AF;
 } 
 input:focus {
     outline: none;
@@ -83,16 +57,16 @@ input:focus {
     margin-top: 10px;
 }
 .error {
-    color: $error-color;
+    color: #ad3636;
+    padding: 10px;
+
 }
 .error:empty {
     display: none;
 }
 .error-input{
-    border-color: $error-color;
+    border-color: #ad3636;
 }
-
-// toggle
 .hide-toggle {
     visibility: hidden;
 }
@@ -100,9 +74,9 @@ label{
     position: relative;
 }
 label:before {
-    height: 1.4em;
-    width: 1.4em;
-    left: 0.2em;
+  height: 1.4em;
+  width: 1.4em;
+  left: 0.2em;
 }
 .toggle {
     visibility: visible;
@@ -111,90 +85,97 @@ label:before {
     width: 30px;
     margin-top: 10px;
     margin-right: 20px;
-
-    input[type="checkbox"].toggle-custom{
-        opacity: 0%;
-        position: relative;
-    }
-    .toggle-custom + label{
-        position: relative;
-        display: flex;    
-        align-items: center;
-        cursor: pointer;
-    }
-    input[type="checkbox"].toggle-custom + label::before{
-        position: absolute;
-        content: "";
-        width: 4em;
-        height: 2em;
-        background-color:  #AAD9BB;
-        border-radius: $toggle-border;
-        margin-right: 0.25em;
-        transition: 500ms;
-    }
-    input[type="checkbox"].toggle-custom + label::after{
-        align-items: center;
-        display: flex;
-        position: absolute;
-        content: "";
-        text-align: center;
-        width: 2em;
-        height: 2em;
-        left: 0.3em;
-        background-color:  #80BCBD;
-        border-radius: $toggle-border;
-    }
-    input[type="checkbox"].toggle-custom:checked + label::before{
-        background-color:  #FFDD95;
-    }
-    input[type="checkbox"].toggle-custom:checked + label::after{
-        background-color:  #FAEF9B;
-        
-        /* adopted */
-        left: calc(100% + 0.5em); 
-    }
 }
-
-
-
+input[type="checkbox"].toggle-custom{
+    opacity: 0%;
+    position: relative;
+}
+.toggle-custom + label{
+    position: relative;
+    display: flex;    
+    align-items: center;
+    cursor: pointer;
+}
+input[type="checkbox"].toggle-custom + label::before{
+    position: absolute;
+    content: "";
+    width: 4em;
+    height: 2em;
+    background-color:  #AAD9BB;
+    border-radius: 2em;
+    margin-right: 0.25em;
+    transition: 500ms;
+}
+input[type="checkbox"].toggle-custom + label::after{
+    align-items: center;
+    display: flex;
+    position: absolute;
+    content: "";
+    text-align: center;
+    width: 2em;
+    height: 2em;
+    left: 0.3em;
+    background-color:  #80BCBD;
+    border-radius: 2em;
+}
+input[type="checkbox"].toggle-custom:checked + label::before{
+    background-color:  #FFDD95;
+}
+input[type="checkbox"].toggle-custom:checked + label::after{
+    background-color:  #FAEF9B;
+    
+    /* adopted */
+    left: calc(100% + 0.5em); 
+}
 .sun:empty{
     display: none;
 }
 .sun{
-    @include background-image-additions;
     text-align: center;
     color: #ffffff;
     margin-top: 5%;
     margin: 0 auto;
     width: 200px;
     height: 200px;
+    padding: 10px;
+        /* from stackoverflow */
+    background-size:     cover;                    
+    background-repeat:   no-repeat;
+    background-position: center center;  
 }
-
-
 .form-city{
-    @include background-image-additions;
     align-items: center;
     margin-top: 5%;
+    padding: 10px;
+    /* from stackoverflow */
+    background-size:     cover;                    
+    background-repeat:   no-repeat;
+    background-position: center center;  
 }
 .weatherDescribtion{
     color: #ffffff;
     width: 100%;
     margin-top: 2%;
+    padding: 10px;
     text-align: center;
 }
 .weather-details{
     display: none;
+
 }
 .weatherDescribtion:empty{
     display: none;
 }
+/* this technique was adobted from stackoverflow */
 .nextto{
     display: flex;
     flex-direction: column;
     justify-content: center;
+
 }
-.weatherDescribtion{
+.nextto .weatherDescribtion{
     flex: 1;  
+    /*  */
 }
 .main-and-secondary{
     text-align: center;
@@ -203,16 +184,22 @@ label:before {
     height: 300px;
 }
 .mapview{
-    margin: 1%;    
+    margin: 1%;
+    padding: 10px;
+    
 }
-
 .forecast-background{
-    @include background-image-additions;
+    border-radius: 10px;
+    padding: 10px;
     margin: 10px;
     text-align: center;
     color: #ffffff;
     width: 200px;
     height: 200px;
+    background: rgba(0, 0, 0, 0.5);
+    background-size:     cover;                 
+    background-repeat:   no-repeat;
+    background-position: center center;  
 }
 .forecast-list{
     /* because nextto has display: flext; property we that affects alignment,
@@ -220,6 +207,13 @@ label:before {
      */
     margin-top: 5%;
     margin: 0 auto;
+    padding: 10px;
+}
+.background-weatherImage {
+    background-size:     cover;                 
+    background-repeat:   no-repeat;
+    background-position: center center;  
+    width: 100%;
 }
 .cloudy {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/clouds.jpg);
@@ -245,13 +239,18 @@ label:before {
 .sun-times{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./images/sun.jpg);
 }
-
+.background-additions{
+    background-size:     cover;                    
+    background-repeat:   no-repeat;
+    background-position: center center;  
+}
 .sun-timings{
     display: none;
 }
 .alerts{
+    padding: 10px;
     margin: 10px;
-    background-color: $containers-color;
+    background-color: #BFD8AF;
 }
 .alerts:empty{
     display: none;
@@ -263,21 +262,18 @@ footer{
     margin-top: 80%;
     padding: 20px;
     background-color: #ffffff;
-    // border-radius: 10px;
+    border-radius: 10px;
 }
-
-@media only screen and (min-width:$ipad-breakpoint) {
+@media only screen and (min-width:768px) {
     
     .weather-app-title{
-        font-size: $normal-font-size;
+        font-size: 35px;
     }
-    .toggle{
-        input[type="checkbox"].toggle-custom:checked + label::after{
-            background-color:  #FAEF9B;
-        
-            /* adopted */
-            left: calc(100% + 0.5em); 
-        }
+    input[type="checkbox"].toggle-custom:checked + label::after{
+        background-color:  #FAEF9B;
+    
+        /* adopted */
+        left: calc(100% + 0.5em); 
     }
 
     .weather-details{
@@ -290,6 +286,7 @@ footer{
     .sun{
         width: 45%;
         height: 200px;
+        padding: 10px;
     }
     .sun-timings{
         display: none;
@@ -298,38 +295,37 @@ footer{
         display: none;
     }
 }
-@media only screen and (min-width:$desktop-breakpoint) {
-    .toggle{
-        input[type="checkbox"].toggle-custom + label::before{
-            width: 6em;
-            height: 3em;
-        }
-        input[type="checkbox"].toggle-custom + label::after{
-            align-items: center;
-            display: flex;
-            position: absolute;
-            content: "";
-            text-align: center;
-            width: 3em;
-            height: 3em;
-            left: 0.2em;
-            background-color:  #80BCBD;
-            border-radius: $toggle-border;
-        }
-        input[type="checkbox"].toggle-custom:checked + label::after{
-            background-color:  #FAEF9B;
-        
-            /* adopted */
-            left: calc(100% + 1.29em); 
-        }
+@media only screen and (min-width:1200px) {
+    input[type="checkbox"].toggle-custom + label::before{
+        width: 6em;
+        height: 3em;
     }
 
+    input[type="checkbox"].toggle-custom + label::after{
+        align-items: center;
+        display: flex;
+        position: absolute;
+        content: "";
+        text-align: center;
+        width: 3em;
+        height: 3em;
+        left: 0.2em;
+        background-color:  #80BCBD;
+        border-radius: 2em;
+    }
     .search-bar-input{
         margin-left: 2%;
         width: 500px;
     }
+    input[type="checkbox"].toggle-custom:checked + label::after{
+        background-color:  #FAEF9B;
+    
+        /* adopted */
+        left: calc(100% + 1.29em); 
+    }
     button { 
         border: 0px;
+        padding: 10px;
         background-color: transparent;
         width: auto;
     }   
@@ -361,6 +357,10 @@ footer{
         flex-direction: row;
     }
 
+    .nextto .weatherDescribtion{
+        flex: 1;
+    }
+
     .forecast-list{
         justify-content: center;  
         margin-top: 15%;
@@ -368,37 +368,41 @@ footer{
         width: 50%;
     }
 
+    .background-weatherImage {
+        background-size:     cover;                 
+        background-repeat:   no-repeat;
+        background-position: center center;  
+    }
+    .sun{
+        margin: 3% auto;
+        height: 300px;
+        flex: 0 0 auto;
+        padding-top: 200px;
+    }
+
+    .sun-timings{
+        display: block;
+        text-align: center;
+        color: #ffffff;
+        margin: 3% 1%;
+        padding: 10px;
+        width: 50%;
+        height: 300px;
+        flex: 0 0 auto;
+        padding-top: 200px;
+    }
     .sun-container{
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-
-        .sun{
-            margin: 3% auto;
-            height: 300px;
-            flex: 0 0 auto;
-            padding-top: 200px;
-        }
-
-        .sun-timings{
-            @include background-image-additions;
-            display: block;
-            text-align: center;
-            color: #ffffff;
-            margin: 3% 1%;
-            width: 50%;
-            height: 300px;
-            flex: 0 0 auto;
-            padding-top: 200px;
-        }
-
     }
     .stations{
         display: block;
-        background-color: $containers-color;
+        background-color: #AAD9BB;
         text-align: center;
         color: black;
+        padding: 10px;
         margin: 3%;
     }
     .stations:empty{
