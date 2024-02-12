@@ -20,6 +20,7 @@ var tempsF = [];
 
 
 
+
 function setLocalStorage(value){
     if (!cityStorageFlag){
         localStorage.setItem("city", value);
@@ -412,7 +413,7 @@ function setSunDataIntoElements(time){
     let sun = document.getElementById("sunid");
     setSunBackground(time, sun);
     sun.innerHTML = "";
-    sun.innerHTML += "Until " + time["condition"] + ": " + time["hours"] + " and " + time["mintues"];   
+    sun.innerHTML += "<h3>Until " + time["condition"] + ": " + time["hours"] + " and " + time["mintues"] + "</h3>";   
 }
 
 function setSunBackground(time, devElement){
@@ -424,9 +425,9 @@ function sunTimings(weatherData){
     sun.classList.add("sun-times");
     sun.classList.add("background-additions");
     sun.innerHTML = "";
-    sun.innerHTML = "Sunrise: " + weatherData.currentConditions.sunrise ;
+    sun.innerHTML = "<h3>Sunrise: " + weatherData.currentConditions.sunrise + "</h3>";
     sun.innerHTML += "<br>"
-    sun.innerHTML += "Sunset: " + weatherData.currentConditions.sunset;   
+    sun.innerHTML += "<h3>Sunset: " + weatherData.currentConditions.sunset + "</h3>";   
 }
 
 function getStations(weatherData){
